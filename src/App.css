@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 30px;
 }
 
 .App-logo {
@@ -35,4 +36,43 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.sort{
+  margin: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 3px;
+}
+.sort-label{
+  padding: 5px;
+}
+.sort-option{
+  padding: 5px;
+  border: none;
+  
+}
+.age{
+ 
+  margin: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 3px;
+}
+.age-label{
+  padding: 5px;
+}
+.age-option{
+  padding: 5px;
+  border: none;
+  
+}
+.sort:hover{
+border:1px solid #274fd1 ;
+}
+.age:hover{
+border:1px solid  #274fd1 ;
+}
+.App h2{
+  color: lightslategray;
 }

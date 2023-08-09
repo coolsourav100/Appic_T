@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import {useState , useEffect} from 'react'
 import './App.css';
+import {fetchAllData} from './Component/Api/Api.js';
+import Table from './Component/Table.js';
+import Loader from './Component/Loader';
+const App = () => {
+  const [employeeData, setEmployeeData] = useState([]);
 
-function App() {
+  useEffect(() => {
+    fetchAllData()
+      .then(data => {
+        if(data.length>0){
+
+          setEmployeeData(data);
+        }
+        // console.log(data)
+      })
+      .catch(err => {
+        console.log('Error fetching data:', err);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+    {employeeData.length ? <div className="App container">
+      <div>
+        <h2 >Employees Details Table</h2>
+      </div>
+      <div className='container'>
+      
+      <Table data={employeeData}/>
+      </div>
+    </div> : <Loader/> }
+    </>
   );
-}
+};
 
 export default App;
