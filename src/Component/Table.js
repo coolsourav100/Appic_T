@@ -34,7 +34,7 @@ createAgeRange()
     if(!isNaN(minAge) && !isNaN(maxAge)){
       const filtered = data.filter(
         (employee) =>
-          employee.employee_age >= minAge && employee.employee_age < maxAge
+          employee.employee_age >= minAge && employee.employee_age <= maxAge
       );
       setFilteredData(filtered);
     }else{
